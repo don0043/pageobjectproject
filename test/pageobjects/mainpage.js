@@ -28,6 +28,22 @@ class MainPage extends Page {
     get searchFieldInInput () {
         return $('.select2-search__field')
     }
+    get bashOption(){
+        return $('//li[contains(text(), "Bash")]')
+    }
+    get pasteTitle(){
+        return $('//div[@class="info-top"]/h1').getText()
+    }
+    get pasteSyntax(){
+        return $('//div[@class="left"]/a')
+    }
+    get pasteText(){
+        return $('.de1')
+    }
+
+    checkTitle(){
+        return expect(browser).toHaveTitleContaining(this.pasteTitle)
+    }
 
     open () {
         return super.open('https://pastebin.com/');
