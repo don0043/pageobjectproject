@@ -27,10 +27,12 @@ describe('My Login application', () => {
         await MainPage.syntaxInput.click()
         await MainPage.searchFieldInInput.setValue('Bash')
         await MainPage.bashOption.click()
-        await MainPage.pasteFormName.setValue('how to gain dominance among developers')
+        const pasteTitle = 'how to gain dominance among developers'
+        await MainPage.pasteFormName.setValue(pasteTitle)
         await MainPage.creatingPasteButton.click()
-        await MainPage.checkTitle()
+        await MainPage.checkTitle(pasteTitle)
         await expect(MainPage.pasteSyntax).toHaveTextContaining('Bash')
-        await expect(MainPage.pasteText).toHaveTextContaining(myText)
+        await expect(MainPage.pasteText).toHaveTextContaining('git config --global user.name "New Sheriff in Town"')
+
     })
 })

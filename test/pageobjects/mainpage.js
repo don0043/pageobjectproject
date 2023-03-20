@@ -31,9 +31,7 @@ class MainPage extends Page {
     get bashOption(){
         return $('//li[contains(text(), "Bash")]')
     }
-    get pasteTitle(){
-        return $('//div[@class="info-top"]/h1').getText()
-    }
+
     get pasteSyntax(){
         return $('//div[@class="left"]/a')
     }
@@ -41,8 +39,8 @@ class MainPage extends Page {
         return $('.de1')
     }
 
-    checkTitle(){
-        return expect(browser).toHaveTitleContaining(this.pasteTitle)
+    checkTitle(title){
+        return expect(browser).toHaveTitleContaining(title)
     }
 
     open () {
